@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Humidifier.MainPage"
+             BackgroundColor="#1A4D2E">
+
+    <Grid RowDefinitions="Auto,*,Auto"
+          Padding="20">
+
+        <!-- Header -->
+        <Label Grid.Row="0"
+               Text="Humidifier Levels"
+               FontSize="32"
+               TextColor="#9DC88D"
+               HorizontalOptions="Center"
+               Margin="0,20,0,20"
+               FontAttributes="Bold"/>
+
+        <!-- Water Tank Container -->
+        <Frame Grid.Row="1"
+               BorderColor="#164B60"
+               BackgroundColor="#1B6B93"
+               CornerRadius="20"
+               Margin="20">
+
+            <Grid RowDefinitions="*,Auto">
+                <!-- Water Level Visualization -->
+                <Frame Grid.Row="0"
+                       Padding="0"
+                       BorderColor="#4FC0D0"
+                       BackgroundColor="#164B60"
+                       CornerRadius="15"
+                       HeightRequest="400">
+
+                    <Grid>
+                        <!-- Water Level Progress -->
+                        <BoxView x:Name="WaterLevel"
+                                BackgroundColor="#4FC0D0"
+                                VerticalOptions="End"
+                                HeightRequest="400"/>
+
+                        <!-- Water Level Percentage -->
+                        <Label x:Name="PercentageLabel"
+                               Text="100%"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="24"
+                               FontAttributes="Bold"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Time Display -->
+                <Label x:Name="TimeLabel"
+                       Grid.Row="1"
+                       Text="Time Remaining: 5:00"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,10,0,0"
+                       FontSize="18"/>
+            </Grid>
+        </Frame>
+
+        <!-- Control Buttons -->
+        <HorizontalStackLayout Grid.Row="2"
+                              Spacing="20"
+                              HorizontalOptions="Center"
+                              Margin="0,20,0,0">
+
+            <Button Text="Stop"
+                    Clicked="StopClicked"
+                    BackgroundColor="IndianRed"
+                    TextColor="#164B60"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    Padding="20, 10"/>
+
+            <Button Text="Refill Tank"
+                    Clicked="OnRefillClicked"
+                    BackgroundColor="#4FC0D0"
+                    TextColor="#164B60"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    Padding="20,10"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>
